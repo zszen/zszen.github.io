@@ -174,7 +174,7 @@ function deviceMotionHandler(eventData) {
         }
 }
 function vibration(){
-	if(br<3000){
+	if(br<4000){
 		log("再继续甩动");
 	}else{
 		log("你应该看到答案了");
@@ -187,7 +187,7 @@ function vibration(){
 	shakeAllWord();
 	console.log(shaketimes);
 	if(shaketimes>2){
-		if(br<3000){
+		if(br<8000){
 			br*=1.2;
 		}
 		modifyPhoto(br);
