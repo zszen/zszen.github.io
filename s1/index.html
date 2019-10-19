@@ -29,17 +29,17 @@
 <!--<script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>-->
 </head>
 <body style="">
-<div class="words" style="width:100%;height: 300px; color: #fff;" align="center">
-	<label class="shakeme"></label><br>
+<div class="words" style="position:fixed;z-index:1;margin-top:35%;margin-bottom:35%;width:100%;height:500px;color: #fff;" align="center">
 	<label class="t1"><font size="5">林修!!</font></label><br>
 	<label class="t2"><font size="5">我就知道你能找到这里</font></label><br>
 	<label class="t3"><font size="5">还记得我在火车上跟你提到</font></label><br>
 	<label class="t4"><font size="5">巴格达地震后的秘密么</font></label><br>
 	<label class="t5"><font size="5">当“地震”再次来临的时候</font></label><br>
 	<label class="t6"><font size="5">或许你能发现一些“我”的秘密吧</font></label><br>
+		
 </div>
-<div id="" style="width: 100%;">
-	<img class="photo"  style="width:100%;" src="img/bg2c.jpg" />
+<div id="" style="position:fixed;z-index:0;width: 100%;margin-top:35%;margin-bottom:35%;overflow: hidden;">
+	<img class="photo"  style="width:100%;" src="img/bg3c.jpg" />
 </div>
 	
 </div>
@@ -50,9 +50,19 @@ log("摇晃手机测试")
 //createjs.CSSPlugin.install();
 jQuery.easing.def = "easeOutElastic";
 document.body.style.backgroundColor="#000";
-
+if(isDebugMode){
+	$('body').on('click', function(){
+		vibration()
+	})
+}
 fadeIn();
 //shakeAllWord();
+
+function fadeOut(tag){
+	var t1 = $("label.t"+(tag+1));
+	t1.css("opacity",1);
+	t1.animate({opacity:0},300);
+}
 
 function fadeIn(){
 	if(isDebugMode){
@@ -83,13 +93,14 @@ function fadeIn(){
 }
 
 function shakeAllWord(){
+	return
 	for(var k=0;k<6;k++){
 		var t1 = $("label.t"+(k+1));
 //		t1.css("padding-left",40);
 		var j=1
 		for (var i=40;i>0;i-=3) {
 			j*=-1;
-			t1.animate({paddingLeft:i*j},50);
+			t1.animate({paddingLeft:i*j},35);
 		}
 	}
 }
@@ -135,6 +146,7 @@ var SHAKE_THRESHOLD = 4000;
 var last_update = 0;
 var x, y, z, last_x = 0, last_y = 0, last_z = 0;
 var shaketype = 0;
+var shaketimes  = 0;
 function deviceMotionHandler(eventData) {
         var acceleration =eventData.accelerationIncludingGravity;
         var curTime = new Date().getTime();
@@ -161,15 +173,22 @@ function deviceMotionHandler(eventData) {
         }
 }
 function vibration(){
-	if(br<4000){
+	if(br<3000){
 		log("再继续甩动");
 	}else{
 		log("你应该看到答案了");
 	}
-	br*=1.2;
-//	log(br);
-	modifyPhoto(br);
+	fadeOut(shaketimes);
+	shaketimes++;
 	shakeAllWord();
+	console.log(shaketimes);
+	if(shaketimes>2){
+		if(br<3000){
+			br*=1.2;
+		}
+		modifyPhoto(br);
+	}
+//	log(br);
 				
     navigator.vibrate = navigator.vibrate
                || navigator.webkitVibrate
