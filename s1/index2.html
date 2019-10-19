@@ -20,8 +20,8 @@
             height: 100%;
         }
         .words{
-	        	font-size: 18px;
-	        	line-height: 40px;
+        	font-size: 18px;
+        	line-height: 40px;
         }
         body{font-family:cst;}
     </style>
@@ -93,14 +93,13 @@ function fadeIn(){
 }
 
 function shakeAllWord(){
-	//return
 	for(var k=0;k<6;k++){
 		var t1 = $("label.t"+(k+1));
 //		t1.css("padding-left",40);
-		var j=k%2>0?1:-1;
-		for (var i=15;i>0;i-=3) {
+		var j=k%2==0?1:-1;
+		for (var i=40;i>0;i-=3) {
 			j*=-1;
-			t1.animate({paddingLeft:i*j},40);
+			t1.animate({paddingLeft:i*j},35);
 		}
 	}
 }
@@ -147,7 +146,6 @@ var last_update = 0;
 var x, y, z, last_x = 0, last_y = 0, last_z = 0;
 var shaketype = 0;
 var shaketimes  = 0;
-var shakewordfadeout = 0;
 function deviceMotionHandler(eventData) {
         var acceleration =eventData.accelerationIncludingGravity;
         var curTime = new Date().getTime();
@@ -174,20 +172,17 @@ function deviceMotionHandler(eventData) {
         }
 }
 function vibration(){
-	if(br<4000){
+	if(br<3000){
 		log("再继续甩动");
 	}else{
 		log("你应该看到答案了");
 	}
+	fadeOut(shaketimes);
 	shaketimes++;
-	if(shaketimes%3==0){
-		fadeOut(shakewordfadeout);
-		shakewordfadeout++
-	}
 	shakeAllWord();
-//	console.log(shaketimes);
-	if(shaketimes>5){
-		if(br<8000){
+	console.log(shaketimes);
+	if(shaketimes>4){
+		if(br<3000){
 			br*=1.2;
 		}
 		modifyPhoto(br);
