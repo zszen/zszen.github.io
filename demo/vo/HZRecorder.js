@@ -51,7 +51,7 @@
                 var sampleRate = Math.min(this.inputSampleRate, this.outputSampleRate);
                 var sampleBits = Math.min(this.inputSampleBits, this.oututSampleBits);
                 var bytes = this.compress();
-                return $.base64.encode(bytes);
+                //return $.base64.encode(bytes);
                 ///
                 ///
                 var dataLength = bytes.length * (sampleBits / 8);
@@ -135,10 +135,8 @@
         }
         //上传
         this.upload = function (callback) {
-
             console.log(this.getBlob())
             callback(this.getBlob())
-
         }
 
         this.onProgress=function (cb){
