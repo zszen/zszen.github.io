@@ -74,10 +74,18 @@ $(function(){
                 // 告诉jQuery不要去设置Content-Type请求头
                 contentType : false,
                 success : function(res) {
-                		log("success"+res);
+					var str = "请求文件成功："
+					for(var k in res){
+						str+=k+":"+res[k];
+					}
+					log(str)
                 },
-                error : function(error) {
-                    log("error"+error);
+                error : function(err) {
+					var str = "请求文件失败："
+					for(var k in err){
+						str+=k+":"+err[k];
+					}
+					log(str)
                 }
             });
         });
