@@ -67,7 +67,7 @@ $(function(){
 //          fd.append("channel","1");
 //          fd.append("cuid","xxxxxxxxxxxxxxxxxxxxxxxxx");
 //          fd.append("token","25.d1dd29f8e57d23d07e9d4c50b8d64c28.315360000.1887383419.282335-17620281");
-            data = {
+            postData = {
             		speech:data,
             		rate:16000,
             		format:"wav",
@@ -78,7 +78,7 @@ $(function(){
             $.ajax({
                 url : "https://tsn.baidu.com/text2audio",
                 type : 'POST',
-                data : data,
+                data : postData,
             		contentType: "application/json",
             		timeout: 5000,
                 // 告诉jQuery不要去处理发送的数据
