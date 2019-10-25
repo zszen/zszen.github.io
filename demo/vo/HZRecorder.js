@@ -51,6 +51,9 @@
                 var sampleRate = Math.min(this.inputSampleRate, this.outputSampleRate);
                 var sampleBits = Math.min(this.inputSampleBits, this.oututSampleBits);
                 var bytes = this.compress();
+                return $.base64.encode(bytes);
+                ///
+                ///
                 var dataLength = bytes.length * (sampleBits / 8);
                 var buffer = new ArrayBuffer(44 + dataLength);
                 var data = new DataView(buffer);
