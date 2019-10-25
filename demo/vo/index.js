@@ -85,6 +85,8 @@ $(function(){
                 data : postData,
             		contentType: "application/json",
             		timeout: 5000,
+				crossDomain: true,
+				dataType: 'jsonp',
                 // 告诉jQuery不要去处理发送的数据
 //              processData : false,
                 // 告诉jQuery不要去设置Content-Type请求头
