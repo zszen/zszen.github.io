@@ -30,7 +30,6 @@ $(function(){
 	})
 	$("#token").click(function(){
 		$.ajax({
-			dataType:'json',
 			type:"post",
 			url:"https://openapi.baidu.com/oauth/2.0/token", //grant_type=client_credentials&client_id=uSmMSjMWoDVssx0BEq9qewgy&client_secret=hyhXKQpXP0yaMONqdlvD9AfP4QxGF8a2
 			data:{
@@ -38,6 +37,9 @@ $(function(){
 				client_id:"uSmMSjMWoDVssx0BEq9qewgy",
 				client_secret:"hyhXKQpXP0yaMONqdlvD9AfP4QxGF8a2"
 			},
+			crossDomain: true,
+			dataType: 'jsonp',
+//			dataType:'json',
 			async:true,
 			success:function(res){
 				log("请求token:"+res);
