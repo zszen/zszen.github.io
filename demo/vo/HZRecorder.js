@@ -47,7 +47,7 @@
                 }
                 return result;
             }
-            , encodeWav2: function(){
+            , encodeBase64: function(){
             		return $.base64.encode(this.compress());
             }
             , encodeWAV: function () {
@@ -129,7 +129,7 @@
         //获取音频文件
         this.getBlob = function () {
             this.stop();
-            return audioData.encodeWAV2();
+            return audioData.encodeWAV();
         }
 
         //回放
@@ -139,7 +139,7 @@
         //上传
         this.upload = function (callback) {
             console.log(this.getBlob())
-            callback(this.getBlob())
+            callback(audioData.encodeBase64())
         }
 
         this.onProgress=function (cb){
