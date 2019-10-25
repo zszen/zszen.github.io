@@ -65,7 +65,7 @@ $(function(){
                 fd.append("cuid","xxxxxxxxxxxxxxxxxxxxxxxxx");
                 fd.append("token","25.d1dd29f8e57d23d07e9d4c50b8d64c28.315360000.1887383419.282335-17620281");
                 $.ajax({
-                    url : "http://tsn.baidu.com/text2audio",
+                    url : "https://tsn.baidu.com/text2audio",
                     type : 'POST',
                     data : fd,
                     // 告诉jQuery不要去处理发送的数据
