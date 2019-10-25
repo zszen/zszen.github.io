@@ -67,6 +67,10 @@ $(function(){
 //          fd.append("channel","1");
 //          fd.append("cuid","xxxxxxxxxxxxxxxxxxxxxxxxx");
 //          fd.append("token","25.d1dd29f8e57d23d07e9d4c50b8d64c28.315360000.1887383419.282335-17620281");
+            
+            console.log(data);
+            return;
+            
             postData = {
             		speech:data,
             		rate:16000,

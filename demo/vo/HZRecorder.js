@@ -47,6 +47,9 @@
                 }
                 return result;
             }
+            , encodeWav2: function(){
+            		return $.base64.encode(this.compress());
+            }
             , encodeWAV: function () {
                 var sampleRate = Math.min(this.inputSampleRate, this.outputSampleRate);
                 var sampleBits = Math.min(this.inputSampleBits, this.oututSampleBits);
@@ -126,7 +129,7 @@
         //获取音频文件
         this.getBlob = function () {
             this.stop();
-            return audioData.encodeWAV();
+            return audioData.encodeWAV2();
         }
 
         //回放
