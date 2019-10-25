@@ -60,13 +60,13 @@ $(function(){
 		recorder.upload(function (data) {
 			log("传递参数")
 		//data 对象为录音后的音频数据
-//          var fd = new FormData();
-//          fd.append("speech", data);
-//          fd.append("rate",16000);
-//          fd.append("format","wav");
-//          fd.append("channel","1");
-//          fd.append("cuid","xxxxxxxxxxxxxxxxxxxxxxxxx");
-//          fd.append("token","25.d1dd29f8e57d23d07e9d4c50b8d64c28.315360000.1887383419.282335-17620281");
+            var fd = new FormData();
+            fd.append("speech", data);
+            fd.append("rate",16000);
+            fd.append("format","wav");
+            fd.append("channel","1");
+            fd.append("cuid","xxxxxxxxxxxxxxxxxxxxxxxxx");
+            fd.append("token","25.d1dd29f8e57d23d07e9d4c50b8d64c28.315360000.1887383419.282335-17620281");
             
 //          console.log(data);
 //          return;
@@ -82,15 +82,15 @@ $(function(){
             $.ajax({
                 url : "https://tsn.baidu.com/text2audio",
                 type : 'POST',
-                data : postData,
-            		contentType: "application/json",
-            		timeout: 5000,
-				crossDomain: true,
-				dataType: 'jsonp',
+                data : fd,
+//          		contentType: "application/json",
+//          		timeout: 5000,
+//				crossDomain: true,
+//				dataType: 'jsonp',
                 // 告诉jQuery不要去处理发送的数据
-//              processData : false,
+                processData : false,
                 // 告诉jQuery不要去设置Content-Type请求头
-//              contentType : false,
+                contentType : false,
                 success : function(res) {
 	                	if(res.result == undefined || res.result == '') {
 	                    log("转换失败：" + res.err_msg + "  err_no: " + res.err_no);
