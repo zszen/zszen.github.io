@@ -27,31 +27,31 @@ $(function(){
 			//播放录音
 			recorder.play(audio);
 		})
+		$("#token").click(function(){
+			$.ajax({
+				dataType:'json',
+				type:"post",
+				url:"https://openapi.baidu.com/oauth/2.0/token", //grant_type=client_credentials&client_id=uSmMSjMWoDVssx0BEq9qewgy&client_secret=hyhXKQpXP0yaMONqdlvD9AfP4QxGF8a2
+				data:{
+					grant_type:"client_credentials",
+					client_id:"uSmMSjMWoDVssx0BEq9qewgy",
+					client_secret:"hyhXKQpXP0yaMONqdlvD9AfP4QxGF8a2"
+				},
+				async:true,
+				success:function(res){
+					log("请求token:"+res);
+				},
+				error:function(err){
+					var str = "请求token 失败："
+					for(var k in err){
+						str+=k+":"+err[k];
+					}
+					log(str)
+				}
+			});
+		})
 		$("#upload").click(function(){
 			log("准备上传")
-//			$.ajax({
-//				dataType:'json',
-//				type:"post",
-//				url:"https://openapi.baidu.com/oauth/2.0/token", //grant_type=client_credentials&client_id=uSmMSjMWoDVssx0BEq9qewgy&client_secret=hyhXKQpXP0yaMONqdlvD9AfP4QxGF8a2
-//				data:{
-//					grant_type:"client_credentials",
-//					client_id:"uSmMSjMWoDVssx0BEq9qewgy",
-//					client_secret:"hyhXKQpXP0yaMONqdlvD9AfP4QxGF8a2"
-//				},
-//				async:true,
-//				success:function(res){
-//					log("请求token:"+res);
-//					
-//				},
-//				error:function(err){
-////					log();
-//					var str = "请求token 失败："
-//					for(var k in err){
-//						str+=k+":"+err[k];
-//					}
-//					log(str)
-//				}
-//			});
 //			return;
 			//上传音频数据，经过优化压缩过的
 			recorder.upload(function (data) {
