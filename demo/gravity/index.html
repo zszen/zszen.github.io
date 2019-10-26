@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport"content="width=device-width, initial-scale=1"/>
+    <title></title>
+    <style>
+    		@font-face { 
+			font-family: 'cst'; 
+			src: url('font/cst.ttf'); /* IE9 Compat Modes */ 
+		}
+        html, body {
+            -ms-touch-action: none;
+            background: #ffffff;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+        .words{
+	        	font-size: 18px;
+	        	line-height: 40px;
+        }
+        body{font-family:cst;}
+    </style>
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/jGravity.js"></script>
+<!--<script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>-->
+</head>
+<body style="">
+<div class="words" style="position:fixed;z-index:1;height:500px;width: 100%;color: #fff;" align="center">
+	<br>
+	<br>
+	<img class="t1" src="img/t1.png"/><br>
+	<img class="t2" src="img/t1.png"/><br>
+	<img class="t3" src="img/t1.png"/><br>
+	<img class="t4" src="img/t1.png"/><br>
+	<img class="t5" src="img/t1.png"/><br>
+	<img class="t6" src="img/t1.png"/>
+	<!--<label class="t1"><font size="5">林修!!</font></label><br>
+	<label class="t2"><font size="5">我不确认你能不能找到这里</font></label><br>
+	<label class="t3"><font size="5">还记得我在火车上跟你提到</font></label><br>
+	<label class="t4"><font size="5">巴格达地震后的奇遇么</font></label><br>
+	<label class="t5"><font size="5">当地震再次来临的时候</font></label><br>
+	<label class="t6"><font size="5">或许你能发现我的逆转使命吧</font></label><br>-->
+		
+</div>
+<div id="" style="position:fixed;z-index:0;width: 100%;margin-top:70%;margin-bottom:40%;overflow: hidden;">
+	<img class="photo"  style="width:100%;" src="img/bg4.png" />
+</div>
+	
+</div>
+</body>
+<script type="text/javascript">
+var isDebugMode = 1;
+log("摇晃手机测试")
+//createjs.CSSPlugin.install();
+jQuery.easing.def = "easeOutElastic";
+document.body.style.backgroundColor="#000";
+if(isDebugMode){
+	$('body').on('click', function(){
+		vibration()
+	})
+}
+fadeIn();
+//shakeAllWord();
+
+function fadeOut(tag){
+	var t1 = $(".t"+(tag+1));
+	t1.css("opacity",1);
+	t1.animate({opacity:0},300);
+}
+
+function fadeIn(){
+	if(isDebugMode){
+		for(var k=0;k<6;k++){
+			var t1 = $(".t"+(k+1));
+			t1.css("opacity",0);
+			if(k==5){
+				t1.delay(100*k).animate({opacity:1},300,null,function(){
+					bindShake();
+				});
+			}else{
+				t1.delay(100*k).animate({opacity:1},300);
+			}
+		}
+	}else{
+		for(var k=0;k<6;k++){
+			var t1 = $(".t"+(k+1));
+			t1.css("opacity",0);
+			if(k==5){
+				t1.delay(1800*k+500).animate({opacity:1},800,null,function(){
+					bindShake();
+				});
+			}else{
+				t1.delay(1800*k+500).animate({opacity:1},800);
+			}
+		}
+	}
+}
+
+function shakeAllWord(){
+	//return
+	for(var k=0;k<6;k++){
+		console.log($(".t"+(k+1)))
+		var t1 = $(".t"+(k+1));
+//		t1.css("padding-left",40);
+		var j=k%2>0?1:-1;
+		for (var i=15;i>0;i-=3) {
+			j*=-1;
+			t1.animate({paddingLeft:i*j},40);
+		}
+	}
+}
+//t1.style.opacity = 0;
+//createjs.Tween.get(t1).to({opacity:1},1000);
+
+var grayscale = 0;
+var contrast = 100;
+var saturate = 100;
+var br = 100;
+
+function log(info){
+	if(!isDebugMode){
+		$("label.shakeme").text("");
+	}else{
+		$("label.shakeme").text(info);
+	}
+}
+
+function modifyPhoto(br){
+	$("img.photo").css({
+	    '-webkit-filter': 'brightness('+br+'%) grayscale(' + grayscale + '%) contrast(' + contrast + '%) saturate(' + saturate + '%)',
+	    '-moz-filter': 'brightness('+br+'%) grayscale(' + grayscale + '%) contrast(' + contrast + '%) saturate(' + saturate + '%)',
+	    '-ms-filter': 'brightness('+br+'%) grayscale(' + grayscale + '%) contrast(' + contrast + '%) saturate(' + saturate + '%)',
+	    'filter': 'brightness('+br+'%) grayscale(' + grayscale + '%) contrast(' + contrast + '%) saturate(' + saturate + '%)'
+	});
+}
+
+//运动事件监听
+function bindShake(){
+	if (window.DeviceMotionEvent) {
+		log("试试摇晃手机");
+	    window.addEventListener('devicemotion',deviceMotionHandler,false);
+	}else{
+		log("不支持摇晃手机");
+	}
+}
+
+//获取加速度信息
+//通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
+//而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
+var SHAKE_THRESHOLD = 4000;
+var last_update = 0;
+var x, y, z, last_x = 0, last_y = 0, last_z = 0;
+var shaketype = 0;
+var shaketimes  = 0;
+var shakewordfadeout = 0;
+function deviceMotionHandler(eventData) {
+        var acceleration =eventData.accelerationIncludingGravity;
+        var curTime = new Date().getTime();
+        if ((curTime-last_update)> 10) {
+            var diffTime = curTime -last_update;
+            last_update = curTime;
+            x = acceleration.x;
+            y = acceleration.y;
+            z = acceleration.z;
+            var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
+            if (speed > SHAKE_THRESHOLD) {
+            		if(shaketype==0){
+            			shaketype = 1;
+                		vibration();  // Do something
+                }else{
+                		shaketype = 2;
+                }
+            }else if(shaketype>1){
+            		shaketype = 0;
+            }
+            last_x = x;
+            last_y = y;
+            last_z = z;
+        }
+}
+function vibration(){
+	if(br<4000){
+		log("再继续甩动");
+	}else{
+		log("你应该看到答案了");
+	}
+	shaketimes++;
+	if(isDebugMode){
+		if(shaketimes==2){
+			shakeAllWord();
+			gravity();
+		}
+	}else if(shaketimes<5){
+		shakeAllWord();
+	}else if(shaketimes==5){
+		shakeAllWord();
+		gravity();
+	}
+//	if(shaketimes%3==0){
+////		fadeOut(shakewordfadeout);
+//		shakewordfadeout++
+//	}
+//	shakeAllWord();
+//	console.log(shaketimes);
+	if(shaketimes>5){
+		if(br<8000){
+			br*=1.2;
+		}
+		modifyPhoto(br);
+	}
+//	log(br);
+				
+    navigator.vibrate = navigator.vibrate
+               || navigator.webkitVibrate
+               || navigator.mozVibrate
+               || navigator.msVibrate;
+		
+       if (navigator.vibrate) {
+           // 支持
+//         console.log("支持设备震动！");
+       }else{
+       }
+       //中括号里面的值标示[震动时间，停止时间，震动时间，停止时间………..]。没有错就是这种规律，简单明了
+     navigator.vibrate([500, 300, 400,300]);
+}
+
+var is_on_gravity = false;
+
+function gravity(){
+	if(is_on_gravity) return;
+	is_on_gravity = true;
+//	var arr = $('img');
+//	for(var i=0;i<arr.length;i++){
+//		$(arr[i]).jGravity({ // jGravity works best when targeting the body
+//			target: '.t'+(i+1), // Enter your target critera e.g. 'div, p, span', 'h2' or 'div#specificDiv', or even 'everything' to target everything in the body
+//			ignoreClass: 'ignoreMe', // Specify if you would like to use an ignore class, and then specify the class
+//			weight: 5+Math.random()*100, // Enter any number 1-100 ideally (25 is default), you can also use 'heavy' or 'light'
+//			depth: 5, // Enter a value between 1-10 ideally (1 is default), this is used to prevent targeting structural divs or other items which may break layout in jGravity
+//			drag: false, // Decide if users can drag elements which have been effected by jGravity
+//		});
+//	}
+	$('img').jGravity({ // jGravity works best when targeting the body
+		target: 'everything', // Enter your target critera e.g. 'div, p, span', 'h2' or 'div#specificDiv', or even 'everything' to target everything in the body
+		ignoreClass: 'ignoreMe', // Specify if you would like to use an ignore class, and then specify the class
+		weight: 25, // Enter any number 1-100 ideally (25 is default), you can also use 'heavy' or 'light'
+		depth: 5, // Enter a value between 1-10 ideally (1 is default), this is used to prevent targeting structural divs or other items which may break layout in jGravity
+		drag: false, // Decide if users can drag elements which have been effected by jGravity
+		debugd:true,
+	});
+	// Misc code for demo purposes
+	$('img').removeClass('jGravity');
+	transation();
+}
+
+function transation(){
+	$('body').animate({"padding-top": 100},2500,null,function(){
+		window.open("http://163.com")
+	});
+//	setTimeout(function(){
+//		window.open("http://163.com")
+//	},2000)
+}
+
+
+//$(document).ready(() => {
+//	$('body').on('dblclick', () => { // This can be changed to anything you like in order to trigger jGravity effect
+//		$('body').off('dblclick')
+////		console.log($('div#words'));
+//		$('img').jGravity({ // jGravity works best when targeting the body
+//			target: 'everything', // Enter your target critera e.g. 'div, p, span', 'h2' or 'div#specificDiv', or even 'everything' to target everything in the body
+//			ignoreClass: 'ignoreMe', // Specify if you would like to use an ignore class, and then specify the class
+//			weight: 50, // Enter any number 1-100 ideally (25 is default), you can also use 'heavy' or 'light'
+//			depth: 5, // Enter a value between 1-10 ideally (1 is default), this is used to prevent targeting structural divs or other items which may break layout in jGravity
+//			drag: false, // Decide if users can drag elements which have been effected by jGravity
+//			debugd:true,
+//		});
+//		// Misc code for demo purposes
+//		$('img').removeClass('jGravity');
+////		$(this).delay(1000).queue(() => {
+////			$(this).html("<h2><a href='http://tinybigideas.com/plugins/jquery-gravity/'>Get jGravity</a></h2>");
+////		});
+//		// ----- \\
+//
+//	});
+//});
+
+</script>
+</html>
