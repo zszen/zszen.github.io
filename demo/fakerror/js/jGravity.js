@@ -114,7 +114,7 @@ var isMouseDown = false;
 var iterations = 1;
 var timeStep = 1/25;
 var walls = new Array();
-var wall_thickness = 200;
+var wall_thickness = 500;
 var wallsSetted = false;
 var mouseX = 0;
 var mouseY = 0;
@@ -125,6 +125,9 @@ var bodies = new Array();
 var properties = new Array();
 var orientation = { x: 0, y: 1 };
 var wall_able = true;
+
+console.log(stage); 
+
 
 // get browser dimensions
 getBrowserDimensions();
@@ -141,14 +144,15 @@ init();
 function init() {
 	canvas = document.getElementById('canvas');
 
-	document.onmousedown = onDocumentMouseDown;
-	document.onmouseup = onDocumentMouseUp;
-	document.onmousemove = onDocumentMouseMove;
+	// document.onmousedown = onDocumentMouseDown;
+	// document.onmouseup = onDocumentMouseUp;
+	// document.onmousemove = onDocumentMouseMove;
 
 	// init box2d
 	worldAABB = new b2AABB();
-	worldAABB.minVertex.Set(-200, -200);
-	worldAABB.maxVertex.Set( screen.width + 200, screen.height + 200);
+	var border = 100
+	worldAABB.minVertex.Set(-border, -border);
+	worldAABB.maxVertex.Set( screen.width + border, screen.height + border);
 
 	world = new b2World(worldAABB, new b2Vec2(0, 0), true);
 
@@ -177,9 +181,9 @@ function init() {
 
 		bodies[i] = createBox(world, properties[i][0] + (properties[i][2] >> 1), properties[i][1] + (properties[i][3] >> 1), properties[i][2] / 2, properties[i][3] / 2, false, null, 1);
 	}
+	run()
 }
 
-// run()
 function run() {
 	isRunning = true;
 	setInterval(loop, o.weight); // weight setting
@@ -359,7 +363,7 @@ function setWalls() {
 	}
 
 	walls[0] = createBox(world, stage[2] / 2, - wall_thickness, stage[2], wall_thickness);
-	walls[1] = createBox(world, stage[2] / 2, stage[3] + wall_thickness, stage[2], wall_thickness);
+	walls[1] = createBox(world, stage[2] / 2, stage[3] + wall_thickness-100, stage[2], wall_thickness);
 	walls[2] = createBox(world, - wall_thickness, stage[3] / 2, wall_thickness, stage[3]);
 	walls[3] = createBox(world, stage[2] + wall_thickness, stage[3] / 2, wall_thickness, stage[3]);
 
