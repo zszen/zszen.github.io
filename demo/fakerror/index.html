@@ -156,7 +156,7 @@ var is_on_gravity = false;
 $('body').append('<font class="log"></font>')
 function log(str){
   console.log(str);
-  $('.log').text(str);
+  if(is_debug) $('.log').text(str);
 }
 
 if(is_debug){
