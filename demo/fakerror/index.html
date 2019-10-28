@@ -152,14 +152,16 @@ var is_on_gravity = false;
 // var shake_times_now = 0;
 // var shake_times_max = 5;
 // console.log(123123);
+
+function log(str){
+  console.log(str);
+  $('.log').text(str);
+}
+
 if(is_debug){
   hideLayer(false)
   $('body').append('<button class="test" type="button">Test Effect</button>')
   $('body').append('<font class="log">log</font>')
-  function log(str){
-    console.log(str);
-    $('.log').text(str);
-  }
   log('log starting..')
   $('.rightboard').css("display","");
   // showCorrect()
