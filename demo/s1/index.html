@@ -111,7 +111,6 @@ function shakeAllWord(){
 var grayscale = 0;
 var contrast = 100;
 var saturate = 100;
-var br = 100;
 
 function log(info){
 	if(!isDebugMode){
@@ -149,6 +148,8 @@ var x, y, z, last_x = 0, last_y = 0, last_z = 0;
 var shaketype = 0;
 var shaketimes  = 0;
 var shakewordfadeout = 0;
+var br = 100;
+
 function deviceMotionHandler(eventData) {
         var acceleration =eventData.accelerationIncludingGravity;
         var curTime = new Date().getTime();
