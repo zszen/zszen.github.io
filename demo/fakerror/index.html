@@ -153,6 +153,7 @@ var is_on_gravity = false;
 // var shake_times_max = 5;
 // console.log(123123);
 
+$('body').append('<font class="log"></font>')
 function log(str){
   console.log(str);
   $('.log').text(str);
@@ -161,10 +162,13 @@ function log(str){
 if(is_debug){
   hideLayer(false)
   $('body').append('<button class="test" type="button">Test Effect</button>')
-  $('body').append('<font class="log">log</font>')
   log('log starting..')
   $('.rightboard').css("display","");
   // showCorrect()
+  $("button.test").on("click",function(){
+    hideLayer(false);
+    gravity();
+  })
 }
 
 bindShake();
@@ -181,10 +185,6 @@ shake_callback=function(times){
 }
 
 var tt=0;
-$("button.test").on("click",function(){
-  hideLayer(false);
-  gravity();
-})
 
 $('.rightboard').on("click",function(){
   window.open('http://www.163.com','_self')
