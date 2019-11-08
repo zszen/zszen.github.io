@@ -10,11 +10,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-<title>912x90</title>
-<!-- write your code here -->
+<meta name ="ad.size" content = "width = 160 , height = 600" >
+<title>160x600</title>
+<script type = "text/javascript">
+var clickTag = "http://www.google.com"; 
+</script>
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<script src="912x90.js?1573145950259"></script>
+<script src="160x600.js?1573140366589"></script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
@@ -42,7 +44,7 @@ function handleComplete(evt,comp) {
 	for(i=0; i<ssMetadata.length; i++) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
-	exportRoot = new lib._912x90();
+	exportRoot = new lib._160x600();
 	stage = new lib.Stage(canvas);
 	stage.enableMouseOver();	
 	//Registers the "tick" event listener.
@@ -92,12 +94,14 @@ function handleComplete(evt,comp) {
 	fnStartAnimation();
 }
 </script>
-<!-- write your code here -->
+<script type = "text/javascript">
+var clickTag = "http://www.google.com"; 
+</script>
 </head>
 <body onload="init();" style="margin:0px;">
-	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:912px; height:90px; cursor: pointer;"  onclick="window.open('https://book.austrian.com/app/sp.fly?pos=CN&l=zh&action=price&order=1','_blank');">
-		<canvas id="canvas" width="912" height="90" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:912px; height:90px; position: absolute; left: 0px; top: 0px; display: block;">
+	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:160px; height:600px; cursor: pointer;"  onclick="javascript:window.open(window.clickTag);">
+		<canvas id="canvas" width="160" height="600" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:160px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
 		</div>
 	</div>
 </body>
