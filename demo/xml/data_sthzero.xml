@@ -4,12 +4,12 @@
     <destination>
       <origin></origin>
       <name>布鲁塞尔</name>
-      <price>0</price>
+      <price>5400</price>
     </destination>
     <destination>
       <origin></origin>
       <name>伦敦</name>
-      <price>0</price>
+      <price>2345</price>
     </destination>
     <destination>
       <origin></origin>
