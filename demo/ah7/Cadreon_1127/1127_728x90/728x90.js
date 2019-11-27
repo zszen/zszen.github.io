@@ -121,9 +121,6 @@ setTimeout(() => {
 /***end debug***/
 
 
-
-
-
 (function (cjs, an) {
 
 var p; // shortcut to reference prototypes
@@ -1187,7 +1184,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"img/bj.jpg?1574793918465", id:"_72890"}
+		{src:"img/bj.jpg?1574828878907", id:"_72890"}
 	],
 	preloads: []
 };
