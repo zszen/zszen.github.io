@@ -1,0 +1,55 @@
+{
+	"groups": [
+		{
+			"keys": "bg_png,logo_png,loading_bar_png,loading_bg_png,loading_pile box_png,loading_txt_shadow_png,loading_txt_png,layout_loading_jpg,video_img_jpg",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"url": "res/bg.png",
+			"type": "image",
+			"name": "bg_png"
+		},
+		{
+			"url": "res/logo.png",
+			"type": "image",
+			"name": "logo_png"
+		},
+		{
+			"name": "loading_bar_png",
+			"type": "image",
+			"url": "res/loading_bar.png"
+		},
+		{
+			"name": "loading_bg_png",
+			"type": "image",
+			"url": "res/loading_bg.png"
+		},
+		{
+			"name": "loading_pile box_png",
+			"type": "image",
+			"url": "res/loading_pile box.png"
+		},
+		{
+			"name": "loading_txt_shadow_png",
+			"type": "image",
+			"url": "res/loading_txt_shadow.png"
+		},
+		{
+			"name": "loading_txt_png",
+			"type": "image",
+			"url": "res/loading_txt.png"
+		},
+		{
+			"name": "layout_loading_jpg",
+			"type": "image",
+			"url": "res/layout_loading.jpg"
+		},
+		{
+			"name": "video_img_jpg",
+			"type": "image",
+			"url": "res/video_img.jpg"
+		}
+	]
+}
