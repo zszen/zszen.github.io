@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="screen-orientation" content="portrait">
+	    <meta name="msapplication-tap-highlight" content="no">
+	    <meta name="viewport"content="width=device-width, initial-scale=1"/>
+	    
+		<title></title>
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+
+<script	src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/xe-clipboard"></script>
+<style type="text/css">
+        html,body{
+            height: 100%;
+            padding: 0;
+            margin: 0;
+         }
+         #tip{
+         	/*font-size: 10;*/
+         	color: #F0C78A;
+         	font-family: arial;
+         	font-size:15pt;
+         }
+     </style>
+	</head>
+<body>
+
+<div id="" style="height: 100%;">
+<table border="0" cellspacing="" cellpadding="" align="center" style="width: 100%;height: 100%;">
+	<tr><th>
+	<textarea id="clipboard" name="" rows="6" cols="30"></textarea>
+	<br>
+	<img id="imgbt" src="bt_convert.png" style="border-radius: 15px; width: 80px;" />
+	<br />
+	<label id="tip">已复制到剪贴板</label>
+	</th></tr>
+	<!--<tr><td>Data</td></tr>-->
+</table>
+</div>
+
+</body>
+<!-- src="base.js" -->
+<script type="text/javascript">
+console.log($("#imgbt"))
+//
+//document.addEventListener('paste', function (evt) {
+//clipdata = evt.clipboardData || window.clipboardData;
+//console.log(clipdata.getData('text/plain'));
+//});
+
+$("#imgbt").click(function(){
+	try{
+		clipdata = evt.clipboardData || window.clipboardData;
+		var text = clipdata.getData("Text");
+		$("#clipboard").val(text);
+	}catch(e){
+		$("#clipboard").val("error");
+	}
+
+//	  XEClipboard.copy("123")
+//	var content = clipboardData.getData("Text");
+//	showTip(content)
+//	if (content!=null) {
+//	  
+//	}else {
+//	}
+})
+
+function showTip(msg){
+	$("#tip").text = "asdf";
+}
+</script>
+</html>
