@@ -1,0 +1,38 @@
+{
+	"skins": {
+		"eui.ProgressBar": "resource/eui_skins/ProgressBarSkin.exml",
+		"S_Test_Scale_Logo": "resource/eui_skins/S_Test_Scale_Logo.exml",
+		"S_Test_Video": "resource/eui_skins/S_Test_Video.exml",
+		"LoadingPage": "resource/eui_skins/LoadingPage.exml",
+		"S_Major": "resource/eui_skins/S_Major.exml",
+		"Layer_Bg": "resource/eui_skins/Layer_Bg.exml",
+		"S_Index": "resource/eui_skins/S_Index.exml",
+		"S_P1": "resource/eui_skins/S_P1.exml",
+		"Layer_share": "resource/eui_skins/Layer_share.exml"
+	},
+	"autoGenerateExmlsList": true,
+	"exmls": [
+		"resource/eui_skins/ButtonSkin.exml",
+		"resource/eui_skins/CheckBoxSkin.exml",
+		"resource/eui_skins/HScrollBarSkin.exml",
+		"resource/eui_skins/HSliderSkin.exml",
+		"resource/eui_skins/ItemRendererSkin.exml",
+		"resource/eui_skins/Layer_Bg.exml",
+		"resource/eui_skins/Layer_share.exml",
+		"resource/eui_skins/LoadingPage.exml",
+		"resource/eui_skins/PanelSkin.exml",
+		"resource/eui_skins/ProgressBarSkin.exml",
+		"resource/eui_skins/RadioButtonSkin.exml",
+		"resource/eui_skins/S_Index.exml",
+		"resource/eui_skins/S_Major.exml",
+		"resource/eui_skins/S_P1.exml",
+		"resource/eui_skins/S_Test_Scale_Logo.exml",
+		"resource/eui_skins/S_Test_Video.exml",
+		"resource/eui_skins/ScrollerSkin.exml",
+		"resource/eui_skins/TextInputSkin.exml",
+		"resource/eui_skins/ToggleSwitchSkin.exml",
+		"resource/eui_skins/VScrollBarSkin.exml",
+		"resource/eui_skins/VSliderSkin.exml"
+	],
+	"path": "resource/default.thm.json"
+}
