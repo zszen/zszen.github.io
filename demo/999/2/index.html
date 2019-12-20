@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Egret</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #888888;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+         data-entry-class="Main"
+         data-orientation="portrait"
+         data-scale-mode="noBorder"
+         data-frame-rate="50"
+         data-content-width="640"
+         data-content-height="960"
+         data-show-paint-rect="false"
+         data-multi-fingered="2"
+         data-show-fps="false" data-show-log="false"
+         data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+    </div>
+    <div id="videoc" style="position:absolute; width:1%;height:1%;">
+        <!--<img
+            id="videocontrol"
+            src=""
+        /> -->
+        <!--<input type="button" id="videocontrol" value="播放"></input>-->
+        <video src="" autoplay="autoplay" loop="loop"
+            x5-playsinline="" 
+            playsinline 
+            poster=""
+            webkit-playsinline="true" 
+            width="100%" height="100%" style="display:none" id="video">
+         Your brownser dose not support the video tag.
+        </video>
+            <!--poster="https://zszen.github.io/demo/video/video_img.jpg"-->
+    </div>
+<script>
+    let dic = {};
+    dic[0.660472972972973]={x:0.17391304347826086 ,y:0.25675675675675674 ,w:0.6751918158567775 ,h:0.3277027027027027};
+    dic[0.46153846153846156]={x:0.043478260869565216 ,y:0.2508361204013378 ,w:0.9311594202898551 ,h:0.3377926421404682};
+    dic[0.7341137123745819]={x:0.17539863325740318 ,y:0.225752508361204 ,w:0.6765375854214123 ,h:0.3712374581939799};
+    dic[0.8933333333333333]={x:0.17164179104477612 ,y:0.16666666666666666 ,w:0.6660447761194029 ,h:0.4533333333333333};
+    dic[0.6767169179229481]={x:0.1782178217821782 ,y:0.23450586264656617 ,w:0.6608910891089109 ,h:0.33835845896147404};
+    dic[0.5944170771756979]={x:0.143646408839779 ,y:0.2545155993431856 ,w:0.7375690607734806 ,h:0.33169129720853857};
+    dic[0.5232744783306581]={x:0.09815950920245399 ,y:0.2568218298555377 ,w:0.8190184049079755 ,h:0.3402889245585875};
+    
+    let videoContainer = document.getElementById("videoc");
+
+    document.addEventListener("WeixinJSBridgeReady", function() {
+        let video = document.getElementById("video");
+        video.play();
+    }, false);
+
+    document.show_video = function (src){
+        let video = document.getElementById("video");
+        video.style.display = "inline";
+        var ss = document.documentElement.clientWidth/document.documentElement.clientHeight;
+        var drt = 100000;
+        var tarssInfo = null;
+        var tarssInfo2 = null;
+        var drt1 = 1;
+        var drt2 = 1;
+        for(let key in dic){
+            if(Math.abs(key-ss)<drt){
+                drt = Math.abs(key-ss);
+                tarssInfo2 = tarssInfo;
+                drt2 = drt1;
+                tarssInfo = dic[key];
+                drt1 = drt;
+            }
+        }
+        videoContainer.style.width = (tarssInfo.w+(tarssInfo2.w-tarssInfo.w)*drt1/drt2)*100+"%";
+        videoContainer.style.height = (tarssInfo.h+(tarssInfo2.h-tarssInfo.h)*drt1/drt2)*100+"%";
+        videoContainer.style.left = (tarssInfo.x+(tarssInfo2.x-tarssInfo.x)*drt1/drt2)*100+"%";
+        videoContainer.style.top = (tarssInfo.y+(tarssInfo2.y-tarssInfo.y)*drt1/drt2)*100+"%";
+        video.pause();
+        video.src = src;
+        video.play();
+    }
+
+    document.hide_video = function(){
+        let videoc = document.getElementById("videoc");
+        let video = document.getElementById("video");
+        videoc.style.width = "1%";
+        videoc.style.height = "1%";
+        video.style.display = "none";
+        video.pause();
+    }
+
+    var loadScript = function (list, callback) {
+        var loaded = 0;
+        var loadNext = function () {
+            loadSingleScript(list[loaded], function () {
+                loaded++;
+                if (loaded >= list.length) {
+                    callback();
+                }
+                else {
+                    loadNext();
+                }
+            })
+        };
+        loadNext();
+    };
+
+    var loadSingleScript = function (src, callback) {
+        var s = document.createElement('script');
+        s.async = false;
+        s.src = src;
+        s.addEventListener('load', function () {
+            s.parentNode.removeChild(s);
+            s.removeEventListener('load', arguments.callee, false);
+            callback();
+        }, false);
+        document.body.appendChild(s);
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './manifest.json?v=' + Math.random(), true);
+    xhr.addEventListener("load", function () {
+        var manifest = JSON.parse(xhr.response);
+        var list = manifest.initial.concat(manifest.game);
+        loadScript(list, function () {
+            /**
+             * {
+             * "renderMode":, //Engine rendering mode, "canvas" or "webgl"
+             * "audioType": 0 //Use the audio type, 0: default, 2: web audio, 3: audio
+             * "antialias": //Whether the anti-aliasing is enabled in WebGL mode, true: on, false: off, defaults to false
+             * "calculateCanvasScaleFactor": //a function return canvas scale factor
+             * }
+             **/
+            egret.runEgret({ renderMode: "canvas", audioType: 0, calculateCanvasScaleFactor:function(context) {
+                var backingStore = context.backingStorePixelRatio ||
+                    context.webkitBackingStorePixelRatio ||
+                    context.mozBackingStorePixelRatio ||
+                    context.msBackingStorePixelRatio ||
+                    context.oBackingStorePixelRatio ||
+                    context.backingStorePixelRatio || 1;
+                return (window.devicePixelRatio || 1) / backingStore;
+            }});
+        });
+    });
+    xhr.send(null);
+</script>
+</body>
+
+</html>
