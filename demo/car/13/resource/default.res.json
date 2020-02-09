@@ -1,0 +1,176 @@
+{
+	"groups": [
+		{
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,description_json,fnt_score_fnt,fnt_score_png,anm1_ske_json,anm1_tex_json,anm1_tex_png,fnt_score2_fnt,fnt_score2_png,board_end_png,res01_json",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"url": "assets/CheckBox/checkbox_select_disabled.png",
+			"type": "image",
+			"name": "checkbox_select_disabled_png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_select_down.png",
+			"type": "image",
+			"name": "checkbox_select_down_png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_select_up.png",
+			"type": "image",
+			"name": "checkbox_select_up_png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_unselect.png",
+			"type": "image",
+			"name": "checkbox_unselect_png"
+		},
+		{
+			"url": "assets/ItemRenderer/selected.png",
+			"type": "image",
+			"name": "selected_png"
+		},
+		{
+			"url": "assets/Panel/border.png",
+			"type": "image",
+			"name": "border_png"
+		},
+		{
+			"url": "assets/Panel/header.png",
+			"type": "image",
+			"name": "header_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_disabled.png",
+			"type": "image",
+			"name": "radiobutton_select_disabled_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_down.png",
+			"type": "image",
+			"name": "radiobutton_select_down_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_up.png",
+			"type": "image",
+			"name": "radiobutton_select_up_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_unselect.png",
+			"type": "image",
+			"name": "radiobutton_unselect_png"
+		},
+		{
+			"url": "assets/ScrollBar/roundthumb.png",
+			"type": "image",
+			"name": "roundthumb_png"
+		},
+		{
+			"url": "assets/Slider/thumb.png",
+			"type": "image",
+			"name": "thumb_png"
+		},
+		{
+			"url": "assets/Slider/track.png",
+			"type": "image",
+			"name": "track_png"
+		},
+		{
+			"url": "assets/Slider/tracklight.png",
+			"type": "image",
+			"name": "tracklight_png"
+		},
+		{
+			"url": "assets/ToggleSwitch/handle.png",
+			"type": "image",
+			"name": "handle_png"
+		},
+		{
+			"url": "assets/ToggleSwitch/off.png",
+			"type": "image",
+			"name": "off_png"
+		},
+		{
+			"url": "assets/ToggleSwitch/on.png",
+			"type": "image",
+			"name": "on_png"
+		},
+		{
+			"url": "assets/Button/button_down.png",
+			"type": "image",
+			"name": "button_down_png"
+		},
+		{
+			"url": "assets/Button/button_up.png",
+			"type": "image",
+			"name": "button_up_png"
+		},
+		{
+			"url": "assets/ProgressBar/thumb_pb.png",
+			"type": "image",
+			"name": "thumb_pb_png"
+		},
+		{
+			"url": "assets/ProgressBar/track_pb.png",
+			"type": "image",
+			"name": "track_pb_png"
+		},
+		{
+			"url": "assets/ScrollBar/track_sb.png",
+			"type": "image",
+			"name": "track_sb_png"
+		},
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "res/fnt_score.fnt",
+			"type": "font",
+			"name": "fnt_score_fnt"
+		},
+		{
+			"url": "res/fnt_score.png",
+			"type": "image",
+			"name": "fnt_score_png"
+		},
+		{
+			"url": "res/anm1_ske.json",
+			"type": "json",
+			"name": "anm1_ske_json"
+		},
+		{
+			"url": "res/anm1_tex.json",
+			"type": "json",
+			"name": "anm1_tex_json"
+		},
+		{
+			"url": "res/anm1_tex.png",
+			"type": "image",
+			"name": "anm1_tex_png"
+		},
+		{
+			"name": "fnt_score2_fnt",
+			"type": "font",
+			"url": "res/fnt_score2.fnt"
+		},
+		{
+			"name": "fnt_score2_png",
+			"type": "image",
+			"url": "res/fnt_score2.png"
+		},
+		{
+			"name": "board_end_png",
+			"type": "image",
+			"url": "res/board_end.png"
+		},
+		{
+			"name": "res01_json",
+			"type": "sheet",
+			"url": "res/res01.json",
+			"subkeys": "txt_km,bg,pop_yellow,pop_tree,pop_red,pop_purple,pop_orange,pop_green,pop_girl,pop_blue,water_1,blur_face,car_masaka,car,chest_blue,chest_green,chest_orange,chest_red,chest_yellow,cloud_1,cloud_2,cloud_3,glass_1,hole_1,lighter,logo,road_bg,road_speedon_1,road_speedon_2,txt_distance,txt_power,well_1,road_line,chest_girl,chest_purple,chest_tree,fog"
+		}
+	]
+}
