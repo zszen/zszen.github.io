@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,description_json,fnt_score_fnt,fnt_score_png,anm1_ske_json,anm1_tex_json,anm1_tex_png,fnt_score2_fnt,fnt_score2_png,board_end_png,res01_json,sfx_success3_mp3,bgm_mp3,sfx_success1_mp3,sfx_good4_mp3,sfx_good3_mp3,sfx_good2_mp3,sfx_bubble_mp3,sfx_bubble2_mp3,sfx_car_trap_mp3,sfx_car_speedup_mp3,sfx_good_mp3,sfx_countdown_mp3,sfx_success2_mp3,sfx_car_move_loop_mp3,sfx_car_break_01_mp3,sfx_water_splash_mp3,sfx_absorb_mp3",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,description_json,fnt_score_fnt,fnt_score_png,anm1_ske_json,anm1_tex_json,anm1_tex_png,fnt_score2_fnt,fnt_score2_png,board_end_png,sfx_success3_mp3,bgm_mp3,sfx_success1_mp3,sfx_good4_mp3,sfx_good3_mp3,sfx_good2_mp3,sfx_bubble_mp3,sfx_bubble2_mp3,sfx_car_trap_mp3,sfx_car_speedup_mp3,sfx_good_mp3,sfx_countdown_mp3,sfx_success2_mp3,sfx_car_move_loop_mp3,sfx_car_break_01_mp3,sfx_water_splash_mp3,sfx_absorb_mp3,res01_json",
 			"name": "preload"
 		}
 	],
@@ -167,12 +167,6 @@
 			"url": "res/board_end.png"
 		},
 		{
-			"name": "res01_json",
-			"type": "sheet",
-			"url": "res/res01.json",
-			"subkeys": "txt_km,bg,pop_yellow,pop_tree,pop_red,pop_purple,pop_orange,pop_green,pop_girl,pop_blue,water_1,blur_face,car_masaka,car,chest_blue,chest_green,chest_orange,chest_red,chest_yellow,cloud_1,cloud_2,cloud_3,glass_1,hole_1,lighter,logo,road_bg,road_speedon_1,road_speedon_2,txt_distance,txt_power,well_1,road_line,chest_girl,chest_purple,chest_tree,fog"
-		},
-		{
 			"name": "sfx_success3_mp3",
 			"type": "sound",
 			"url": "sfx/sfx_success3.mp3"
@@ -256,6 +250,12 @@
 			"name": "sfx_absorb_mp3",
 			"type": "sound",
 			"url": "sfx/sfx_absorb.mp3"
+		},
+		{
+			"name": "res01_json",
+			"type": "sheet",
+			"url": "res/res01.json",
+			"subkeys": "txt_km,bg,pop_yellow,pop_tree,pop_red,pop_purple,pop_orange,pop_green,pop_girl,pop_blue,water_1,blur_face,car_masaka,car,chest_blue,chest_green,chest_orange,chest_red,chest_yellow,cloud_1,cloud_2,cloud_3,glass_1,hole_1,lighter,logo,road_bg,road_speedon_1,road_speedon_2,txt_distance,txt_power,well_1,road_line,chest_girl,chest_purple,chest_tree,fog"
 		}
 	]
 }
