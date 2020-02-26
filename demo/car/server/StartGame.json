@@ -15,60 +15,60 @@
                     "Code": "BFUNC002",
                     "Name": "续航宝箱",
                     "Function": "FUNC_ADD_KM_50",
-                    "Count": "9"
+                    "Count": "10"
                 },
                 {
                     "Code": "BFUNC003",
                     "Name": "安全宝箱",
                     "Function": "FUNC_AUTO_COLLECT_5",
-                    "Count": "8"
+                    "Count": "10"
                 },
                 {
                     "Code": "BFUNC004",
                     "Name": "动力宝箱",
                     "Function": "FUNC_INV_5",
-                    "Count": "0"
+                    "Count": "10"
                 },
                 {
                     "Code": "BFUNC005",
                     "Name": "品质宝箱",
                     "Function": "FUNC_ALL_5",
-                    "Count": "0"
+                    "Count": "10"
                 },
                 {
                     "Code": "BFUNC006",
                     "Name": "井盖",
                     "Function": "FUNC_SUB_KM_60",
-                    "Count": "5"
+                    "Count": "10"
                 },
                 {
                     "Code": "BFUNC007",
                     "Name": "深坑",
                     "Function": "FUNC_SUB_KM_60",
-                    "Count": "7"
+                    "Count": "10"
                 },
                 {
                     "Code": "BFUNC008",
                     "Name": "水坑",
                     "Function": "FUNC_VAGUE_2",
-                    "Count": "2"
+                    "Count": "10"
                 }
             ],
             "GiftBoxes": [
                 {
                     "Code": "BGIFT001",
                     "Name": "女神宝箱",
-                    "Count": "0"
+                    "Count": "10"
                 },
                 {
                     "Code": "BGIFT002",
                     "Name": "公益宝箱",
-                    "Count": "1"
+                    "Count": "10"
                 },
                 {
                     "Code": "BGIFT003",
                     "Name": "神秘宝箱",
-                    "Count": "0"
+                    "Count": "10"
                 }
             ]
         }
