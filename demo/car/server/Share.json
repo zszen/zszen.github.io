@@ -39,19 +39,19 @@
                     "Code": "BFUNC006",
                     "Name": "井盖",
                     "Function": "FUNC_SUB_KM_60",
-                    "Count": "5"
+                    "Count": "100"
                 },
                 {
                     "Code": "BFUNC007",
                     "Name": "深坑",
                     "Function": "FUNC_SUB_KM_60",
-                    "Count": "7"
+                    "Count": "100"
                 },
                 {
                     "Code": "BFUNC008",
                     "Name": "水坑",
                     "Function": "FUNC_VAGUE_2",
-                    "Count": "2"
+                    "Count": "100"
                 }
             ],
             "GiftBoxes": [
