@@ -9,13 +9,13 @@
                     "Code": "BFUNC001",
                     "Name": "颜值宝箱",
                     "Function": "FUNC_BZ",
-                    "Count": "10"
+                    "Count": "0"
                 },
                 {
                     "Code": "BFUNC002",
                     "Name": "续航宝箱",
                     "Function": "FUNC_ADD_KM_50",
-                    "Count": "10"
+                    "Count": "4"
                 },
                 {
                     "Code": "BFUNC003",
@@ -58,17 +58,17 @@
                 {
                     "Code": "BGIFT001",
                     "Name": "女神宝箱",
-                    "Count": "10"
+                    "Count": "3"
                 },
                 {
                     "Code": "BGIFT002",
                     "Name": "公益宝箱",
-                    "Count": "10"
+                    "Count": "3"
                 },
                 {
                     "Code": "BGIFT003",
                     "Name": "神秘宝箱",
-                    "Count": "10"
+                    "Count": "3"
                 }
             ]
         }

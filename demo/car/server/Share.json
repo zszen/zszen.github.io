@@ -9,7 +9,7 @@
                     "Code": "BFUNC001",
                     "Name": "颜值宝箱",
                     "Function": "FUNC_BZ",
-                    "Count": "10"
+                    "Count": "0"
                 },
                 {
                     "Code": "BFUNC002",
@@ -27,13 +27,13 @@
                     "Code": "BFUNC004",
                     "Name": "动力宝箱",
                     "Function": "FUNC_INV_5",
-                    "Count": "0"
+                    "Count": "6"
                 },
                 {
                     "Code": "BFUNC005",
                     "Name": "品质宝箱",
                     "Function": "FUNC_ALL_5",
-                    "Count": "0"
+                    "Count": "5"
                 },
                 {
                     "Code": "BFUNC006",
@@ -58,17 +58,17 @@
                 {
                     "Code": "BGIFT001",
                     "Name": "女神宝箱",
-                    "Count": "0"
+                    "Count": "2"
                 },
                 {
                     "Code": "BGIFT002",
                     "Name": "公益宝箱",
-                    "Count": "1"
+                    "Count": "2"
                 },
                 {
                     "Code": "BGIFT003",
                     "Name": "神秘宝箱",
-                    "Count": "0"
+                    "Count": "2"
                 }
             ]
         }
