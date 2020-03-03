@@ -69,6 +69,11 @@
                     "Code": "BGIFT003",
                     "Name": "神秘宝箱",
                     "Count": "3"
+                },
+                {
+                    "Code": "BGIFT004",
+                    "Name": "关爱宝箱",
+                    "Count": "3"
                 }
             ]
         }
