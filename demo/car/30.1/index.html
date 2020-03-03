@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Egret</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <script src="https://cdn.jsdelivr.net/npm/jszip@2.6.1/dist/jszip.min.js"></script>
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #5AA3D8;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+         data-entry-class="Main"
+         data-orientation="portrait"
+         data-scale-mode="showAll"
+         data-frame-rate="30"
+         data-content-width="640"
+         data-content-height="1136"
+         data-show-paint-rect="false"
+         data-multi-fingered="2"
+         data-show-fps="false" data-show-log="false"
+         data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+    </div>
+<script>
+//加载单个zip文件，成功后进行回调
+function loadZip(url,callBack){
+    var xhrZip = new XMLHttpRequest();
+    xhrZip.open("GET", url, true);
+    xhrZip.responseType = "arraybuffer";
+    xhrZip.addEventListener("load", function (oEvent){
+        var arrayBuffer = xhrZip.response; // 注意:不是oReq.responseText
+        if (!arrayBuffer){
+            throw new Error("zip异常");
+        }
+        callBack(new JSZip(arrayBuffer));
+    });
+    xhrZip.send(null);
+}
+function createScript(zip,file){
+    //解压出来变成script脚本
+    var text = zip.file(file).asText();
+    var script = document.createElement("script");
+    script.setAttribute("type", "text/javascript");
+    script.text = text;
+    document.body.appendChild(script);
+    document.body.removeChild(script);
+}
+//加载egret的引擎库
+try{
+    loadZip("core.zip" + "?v=1",function(zip){
+        //压缩进的egret引擎的各个代码文件
+        var files = [
+            "core/egret.min.js",
+            "core/egret.web.min.js",
+            "core/assetsmanager.min.js","core/dragonBones.min.js","core/eui.min.js","core/game.min.js","core/promise.min.js","core/tween.min.js","core/WXCloudApi.min.js"];
+        for (var i = 0; i < files.length; i++){
+            createScript(zip,files[i]);
+        }
+        //加载游戏代码
+        gotoGame();
+    });
+}catch (e){
+    //压缩失败，实际项目这里需要改为加载没压缩的js文件。
+    console.error("jszip解压文件报错，进行普通文件加载");
+}
+</script>
+<script>
+    var loadScript = function (list, callback) {
+        var loaded = 0;
+        var loadNext = function () {
+            loadSingleScript(list[loaded], function () {
+                loaded++;
+                if (loaded >= list.length) {
+                    callback();
+                }
+                else {
+                    loadNext();
+                }
+            })
+        };
+        loadNext();
+    };
+
+    var loadSingleScript = function (src, callback) {
+        var s = document.createElement('script');
+        s.async = false;
+        s.src = src;
+        s.addEventListener('load', function () {
+            s.parentNode.removeChild(s);
+            s.removeEventListener('load', arguments.callee, false);
+            callback();
+        }, false);
+        document.body.appendChild(s);
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './manifest.json?v=' + Math.random(), true);
+    xhr.addEventListener("load", function () {
+        var manifest = JSON.parse(xhr.response);
+        // var list = manifest.initial.concat(manifest.game);
+        var list = manifest.game;
+        loadScript(list, function () {
+            /**
+             * {
+             * "renderMode":, //Engine rendering mode, "canvas" or "webgl"
+             * "audioType": 0 //Use the audio type, 0: default, 2: web audio, 3: audio
+             * "antialias": //Whether the anti-aliasing is enabled in WebGL mode, true: on, false: off, defaults to false
+             * "calculateCanvasScaleFactor": //a function return canvas scale factor
+             * }
+             **/
+            egret.runEgret({ renderMode: "webgl", audioType: 0, calculateCanvasScaleFactor:function(context) {
+                var backingStore = context.backingStorePixelRatio ||
+                    context.webkitBackingStorePixelRatio ||
+                    context.mozBackingStorePixelRatio ||
+                    context.msBackingStorePixelRatio ||
+                    context.oBackingStorePixelRatio ||
+                    context.backingStorePixelRatio || 1;
+                return (window.devicePixelRatio || 1) / backingStore;
+            }});
+        });
+    });
+    xhr.send(null);
+</script>
+
+<script>
+var is_local = true;
+var gameId = "xxxx";
+var url_game_startgame = "https://zszen.github.io/demo/car/server/StartGame.json";
+var url_game_share = "https://zszen.github.io/demo/car/server/Share.json";
+var url_game_settlement = "https://zszen.github.io/demo/car/server/Settlement.json";
+
+// setTimeout(JS_share_revive_back, 3000)
+// if(is_local){
+//     setTimeout(()=>{
+//         JS_start_game({},document["network"].start_game_callback, document["network"]);
+//     },1000)
+// }
+//游戏
+function JS_start_game(data, func, target){
+    var xhr = new XMLHttpRequest();
+    if(is_local){
+        xhr.open('GET', url_game_startgame, false);
+        xhr.send(null);
+        console.log(xhr.response)
+        var json = JSON.parse(xhr.response);
+        func.call(target, json);
+    }else{
+        data["GameId"] = gameId;
+        xhr.addEventListener("load", function () {
+            var json = JSON.parse(xhr.response);
+            func.call(target, json);
+        })
+        xhr.open('POST', url_game_startgame, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        param = JSON.stringify(data);
+        xhr.send(param);
+    }
+}
+
+//发送成绩
+function JS_send_score(data, func, target){
+    var xhr = new XMLHttpRequest();
+    if(is_local){
+        xhr.open('GET', url_game_settlement, false);
+        xhr.send(null);
+        console.log(xhr.response)
+        var json = JSON.parse(xhr.response);
+        func.call(target, json);
+    }else{
+        data["GameId"] = gameId;
+        xhr.addEventListener("load", function () {
+            var json = JSON.parse(xhr.response);
+            func.call(target, json);
+        })
+        xhr.open('POST', url_game_settlement, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        param = JSON.stringify(data);
+        xhr.send(param);
+    }
+    
+}
+
+//分享（复活）
+function JS_share_revive(data, func, target){
+    var xhr = new XMLHttpRequest();
+    if(is_local){
+        xhr.open('GET', url_game_share, false);
+        xhr.send(null);
+        console.log(xhr.response)
+        var json = JSON.parse(xhr.response);
+        func.call(target, json);
+    }else{
+        data["GameId"] = gameId;
+        xhr.addEventListener("load", function () {
+            var json = JSON.parse(xhr.response);
+            func.call(target, json);
+        })
+        xhr.open('POST', url_game_share, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        param = JSON.stringify(data);
+        xhr.send(param);
+    }
+}
+
+//分享完毕后回调
+function JS_share_revive_back(){
+    // console.log(window.document["network"])
+    window.document["network"]["share_revive_callback"].call( window.document["network"])
+}
+
+</script>
+</body>
+
+</html>
