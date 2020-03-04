@@ -2,80 +2,78 @@
     "Success": true,
     "Message": "操作成功",
     "Data": {
-        "GameId": "xxxxxx",
-        "Box": {
-            "FunctionBoxes": [
-                {
-                    "Code": "BFUNC001",
-                    "Name": "颜值宝箱",
-                    "Function": "FUNC_BZ",
-                    "Count": "0"
-                },
-                {
-                    "Code": "BFUNC002",
-                    "Name": "续航宝箱",
-                    "Function": "FUNC_ADD_KM_50",
-                    "Count": "4"
-                },
-                {
-                    "Code": "BFUNC003",
-                    "Name": "安全宝箱",
-                    "Function": "FUNC_AUTO_COLLECT_5",
-                    "Count": "10"
-                },
-                {
-                    "Code": "BFUNC004",
-                    "Name": "动力宝箱",
-                    "Function": "FUNC_INV_5",
-                    "Count": "10"
-                },
-                {
-                    "Code": "BFUNC005",
-                    "Name": "品质宝箱",
-                    "Function": "FUNC_ALL_5",
-                    "Count": "10"
-                },
-                {
-                    "Code": "BFUNC006",
-                    "Name": "井盖",
-                    "Function": "FUNC_SUB_KM_60",
-                    "Count": "70"
-                },
-                {
-                    "Code": "BFUNC007",
-                    "Name": "深坑",
-                    "Function": "FUNC_SUB_KM_60",
-                    "Count": "70"
-                },
-                {
-                    "Code": "BFUNC008",
-                    "Name": "水坑",
-                    "Function": "FUNC_VAGUE_2",
-                    "Count": "60"
-                }
-            ],
-            "GiftBoxes": [
-                {
-                    "Code": "BGIFT001",
-                    "Name": "女神宝箱",
-                    "Count": "3"
-                },
-                {
-                    "Code": "BGIFT002",
-                    "Name": "公益宝箱",
-                    "Count": "3"
-                },
-                {
-                    "Code": "BGIFT003",
-                    "Name": "神秘宝箱",
-                    "Count": "3"
-                },
-                {
-                    "Code": "BGIFT004",
-                    "Name": "关爱宝箱",
-                    "Count": "3"
-                }
-            ]
-        }
+        "GameId": 100042,
+        "FunctionBoxes": [
+            {
+                "Function": "FUNC_SUB_KM_60",
+                "Code": "BFUNC007",
+                "Name": "深坑",
+                "Count": 4
+            },
+            {
+                "Function": "FUNC_VAGUE_2",
+                "Code": "BFUNC008",
+                "Name": "水坑",
+                "Count": 4
+            },
+            {
+                "Function": "FUNC_ALL_5",
+                "Code": "BFUNC005",
+                "Name": "品质宝箱",
+                "Count": 3
+            },
+            {
+                "Function": "FUNC_SUB_KM_60",
+                "Code": "BFUNC006",
+                "Name": "井盖",
+                "Count": 4
+            },
+            {
+                "Function": "FUNC_AUTO_COLLECT_5",
+                "Code": "BFUNC003",
+                "Name": "安全宝箱",
+                "Count": 3
+            },
+            {
+                "Function": "FUNC_INV_5",
+                "Code": "BFUNC004",
+                "Name": "动力宝箱",
+                "Count": 3
+            },
+            {
+                "Function": "FUNC_BZ",
+                "Code": "BFUNC001",
+                "Name": "颜值宝箱",
+                "Count": 1
+            },
+            {
+                "Function": "FUNC_ADD_KM_50",
+                "Code": "BFUNC002",
+                "Name": "续航宝箱",
+                "Count": 3
+            }
+        ],
+        "GiftBoxes": [
+            {
+                "Code": "BGIFT003",
+                "Name": "神秘宝箱",
+                "Count": 0
+            },
+            {
+                "Code": "BGIFT001",
+                "Name": "女神宝箱",
+                "Count": 4
+            },
+            {
+                "Code": "BGIFT004",
+                "Name": "特殊宝箱",
+                "Count": 4
+            },
+            {
+                "Code": "BGIFT002",
+                "Name": "公益宝箱",
+                "Count": 4
+            }
+        ]
     }
 }

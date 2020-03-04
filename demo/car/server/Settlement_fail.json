@@ -1,5 +1,5 @@
 {
-    "Success":false,
-    "Message":"any thing",
-    "Data":{}
+    "Success": false,
+    "Message": "游戏已经结束",
+    "Data": null
 }

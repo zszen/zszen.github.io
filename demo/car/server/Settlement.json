@@ -1,6 +1,8 @@
 {
-    "Success":true,
-    "Message":"操作成功",
-    "Rank":"30",
-    "Data":{}
+    "Success": true,
+    "Message": "操作成功",
+    "Data": {
+        "TotalKM": 420,
+        "Rank": 1
+    }
 }
