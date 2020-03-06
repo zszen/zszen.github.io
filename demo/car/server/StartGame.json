@@ -8,37 +8,37 @@
                 "Function": "FUNC_SUB_KM_60",
                 "Code": "BFUNC007",
                 "Name": "深坑",
-                "Count": 4
+                "Count": 40
             },
             {
                 "Function": "FUNC_VAGUE_2",
                 "Code": "BFUNC008",
                 "Name": "水坑",
-                "Count": 4
+                "Count": 40
             },
             {
                 "Function": "FUNC_ALL_5",
                 "Code": "BFUNC005",
                 "Name": "品质宝箱",
-                "Count": 3
+                "Count": 5
             },
             {
                 "Function": "FUNC_SUB_KM_60",
                 "Code": "BFUNC006",
                 "Name": "井盖",
-                "Count": 4
+                "Count": 40
             },
             {
                 "Function": "FUNC_AUTO_COLLECT_5",
                 "Code": "BFUNC003",
                 "Name": "安全宝箱",
-                "Count": 3
+                "Count": 20
             },
             {
                 "Function": "FUNC_INV_5",
                 "Code": "BFUNC004",
                 "Name": "动力宝箱",
-                "Count": 3
+                "Count": 20
             },
             {
                 "Function": "FUNC_BZ",
@@ -50,29 +50,29 @@
                 "Function": "FUNC_ADD_KM_50",
                 "Code": "BFUNC002",
                 "Name": "续航宝箱",
-                "Count": 3
+                "Count": 5
             }
         ],
         "GiftBoxes": [
             {
                 "Code": "BGIFT001",
                 "Name": "神秘宝箱",
-                "Count": 4
+                "Count": 5
             },
             {
                 "Code": "BGIFT002",
                 "Name": "公益宝箱",
-                "Count": 4
+                "Count": 5
             },
             {
                 "Code": "BGIFT003",
                 "Name": "出行宝箱",
-                "Count": 0
+                "Count": 5
             },
             {
                 "Code": "BGIFT004",
                 "Name": "防疫能手",
-                "Count": 4
+                "Count": 5
             }
         ]
     }
