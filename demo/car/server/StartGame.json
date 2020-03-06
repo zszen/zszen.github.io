@@ -55,23 +55,23 @@
         ],
         "GiftBoxes": [
             {
-                "Code": "BGIFT003",
-                "Name": "神秘宝箱",
-                "Count": 0
-            },
-            {
                 "Code": "BGIFT001",
-                "Name": "女神宝箱",
-                "Count": 4
-            },
-            {
-                "Code": "BGIFT004",
-                "Name": "特殊宝箱",
+                "Name": "神秘宝箱",
                 "Count": 4
             },
             {
                 "Code": "BGIFT002",
                 "Name": "公益宝箱",
+                "Count": 4
+            },
+            {
+                "Code": "BGIFT003",
+                "Name": "出行宝箱",
+                "Count": 0
+            },
+            {
+                "Code": "BGIFT004",
+                "Name": "防疫能手",
                 "Count": 4
             }
         ]
