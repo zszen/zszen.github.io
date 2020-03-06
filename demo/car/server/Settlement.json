@@ -3,6 +3,7 @@
     "Message": "操作成功",
     "Data": {
         "TotalKM": 420,
-        "Rank": 1
+        "Rank": 1,
+        "LotteryCount":1
     }
 }
