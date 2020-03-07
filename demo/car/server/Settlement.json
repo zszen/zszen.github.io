@@ -2,8 +2,8 @@
     "Success": true,
     "Message": "操作成功",
     "Data": {
-        "TotalKM": 420,
+        "TotalKM": 403,
         "Rank": 1,
-        "LotteryCount":1
+        "LotteryCount": 0
     }
 }
