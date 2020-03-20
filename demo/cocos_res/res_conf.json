@@ -1,7 +1,7 @@
 {
     "version":2,
     "conf":{
-        "path":"./imgs/"
+        "path":"imgs/"
     },
     "res":{
         "aw":[
