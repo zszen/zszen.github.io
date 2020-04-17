@@ -14,7 +14,7 @@
                 "Function": "FUNC_SUB_KM_60",
                 "Code": "BFUNC006",
                 "Name": "井盖",
-                "Count": 49
+                "Count": 149
             },
             {
                 "Function": "FUNC_AUTO_COLLECT_5",
@@ -44,13 +44,13 @@
                 "Function": "FUNC_SUB_KM_60",
                 "Code": "BFUNC007",
                 "Name": "深坑",
-                "Count": 49
+                "Count": 149
             },
             {
                 "Function": "FUNC_VAGUE_2",
                 "Code": "BFUNC008",
                 "Name": "水坑",
-                "Count": 49
+                "Count": 149
             }
         ],
         "GiftBoxes": [
