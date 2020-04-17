@@ -1,0 +1,65 @@
+{
+	"Success": true,
+	"Message": "操作成功",
+	"Data": {
+		"GameId": 102166,
+		"FunctionBoxes": [{
+			"Function": "FUNC_ALL_5",
+			"Code": "BFUNC005",
+			"Name": "品质宝箱",
+			"Count": 20
+		}, {
+			"Function": "FUNC_SUB_KM_60",
+			"Code": "BFUNC006",
+			"Name": "井盖",
+			"Count": 156
+		}, {
+			"Function": "FUNC_AUTO_COLLECT_5",
+			"Code": "BFUNC003",
+			"Name": "安全宝箱",
+			"Count": 6
+		}, {
+			"Function": "FUNC_INV_5",
+			"Code": "BFUNC004",
+			"Name": "动力宝箱",
+			"Count": 6
+		}, {
+			"Function": "FUNC_BZ",
+			"Code": "BFUNC001",
+			"Name": "颜值宝箱",
+			"Count": 1
+		}, {
+			"Function": "FUNC_ADD_KM_50",
+			"Code": "BFUNC002",
+			"Name": "续航宝箱",
+			"Count": 20
+		}, {
+			"Function": "FUNC_SUB_KM_60",
+			"Code": "BFUNC007",
+			"Name": "深坑",
+			"Count": 156
+		}, {
+			"Function": "FUNC_VAGUE_2",
+			"Code": "BFUNC008",
+			"Name": "水坑",
+			"Count": 159
+		}],
+		"GiftBoxes": [{
+			"Code": "BGIFT004",
+			"Name": "神秘宝箱",
+			"Count": 0
+		}, {
+			"Code": "BGIFT002",
+			"Name": "公益宝箱",
+			"Count": 0
+		}, {
+			"Code": "BGIFT003",
+			"Name": "出游宝箱",
+			"Count": 0
+		}, {
+			"Code": "BGIFT001",
+			"Name": "防疫宝箱",
+			"Count": 0
+		}]
+	}
+}
