@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://vuejs.org/js/vue.min.js"></script>
+	
+	</script>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body style="margin:0;">
+<div id="app" style="height:100%;width:100%;position: absolute;text-align:center;display: inline-block;vertical-align: middle;">
+    <div style="background-color: black;height:33vh;overflow: hidden;"><code style="color: aliceblue; font-size: 33vw;">{{ th }}</code></div>
+	<div style="background-color: white;height:33vh;overflow: hidden;"><code style="font-size: 33vw;">{{ tm }}</code></div>
+	<div style="background-color: black;height:33vh;overflow: hidden;"><code style="color: aliceblue; font-size: 33vw;">{{ ts }}</code></div>
+</div>
+
+<script>
+
+function fixInt(num, length) {
+	return ( "0000000000000000" + num ).substr( -length );
+}
+
+new Vue({
+	el:"#app",
+	data:{
+		th:"",
+		tm:"",
+		ts:"",
+		zjn:["开学","开学家宁","家宁"]
+	},
+	created(){
+		this.timer = setInterval(this.getTime, 1000);
+	},
+	methods:{
+		show:function(){
+			alert("run...")
+		},
+		getTime(){
+			const date = new Date();
+			const date2 = Date.parse('8/29/2020 08:00:00');
+			// const ms = (date2-date)%1000;
+			const sec = (date2-date)/1000;
+			// this.message = fixInt(Math.floor(sec/3600),2)+":"+fixInt(Math.floor(sec/60%60),2)+":"+fixInt(Math.floor(sec%60),2);
+			// this.message = fixInt(Math.floor(sec/3600),2)+":"+fixInt(Math.floor(sec/60%60),2)+":"+fixInt(Math.floor(sec%60),2)+"."+Math.floor(ms/100)
+			const h = Math.floor(sec/3600);
+			const m = Math.floor(sec/60%60);
+			const s = Math.floor(sec%60);
+			if(sec<0){
+				this.th = this.zjn[0][Math.floor(Math.random()*this.zjn[0].length)];
+			}else{
+				this.th = fixInt(h,2);
+			}
+			if(sec<0){
+				this.tm = this.zjn[1][Math.floor(Math.random()*this.zjn[1].length)];
+			}else{
+				this.tm = fixInt(m,2);
+			}
+			if(sec<0){
+				this.ts = this.zjn[2][Math.floor(Math.random()*this.zjn[2].length)];
+			}else{
+				this.ts = fixInt(s,2);
+			}
+		},
+	}
+})
+
+</script>
+
+	</body>
+</html>
